@@ -1,0 +1,6 @@
+[submodule "client"]
+	path = client
+	url = https://github.com/dev-heeseok/web-react.git
+[submodule "server"]
+	path = server
+	url = https://github.com/dev-heeseok/web-nodejs.git
