@@ -1,0 +1,8 @@
+[submodule "client"]
+	path = client
+	url = https://github.com/dev-heeseok/web-react.git
+  branch = dev
+[submodule "server"]
+	path = server
+	url = https://github.com/kimkmin357/toi-nodejs-server.git
+  branch = dev
