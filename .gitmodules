@@ -5,4 +5,4 @@
 [submodule "server"]
 	path = server
 	url = https://github.com/kimkmin357/toi-nodejs-server.git
-  branch = dev
+  branch = main
