@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import loginReducer from './loginReducer';
+import userReducers from './userReducers';
 
 const reducer = {
-  login: loginReducer,
+  user: userReducers,
 };
 
 const store = configureStore({

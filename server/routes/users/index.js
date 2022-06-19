@@ -33,7 +33,10 @@ router.get('/logout', auth, (req, res) => {
   User.findOneAndUpdate({ _id: req.user._id }, { token: "" }, (err, user) => {
     if (err) return res.json({ success: false, err });
 
-    res.status(200).send({ success: true });
+    res
+      .cookie('x_auth', "")
+      .status(200)
+      .send({ success: true });
   });
 });
 

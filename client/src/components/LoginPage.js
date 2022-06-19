@@ -2,13 +2,13 @@ import React from 'react'
 import { unwrapResult } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { setEmail, setPassword, loginUser } from '../reducers/loginReducer';
+import { setEmail, setPassword, loginUser } from '../reducers/userReducers';
 
 function LoginPage(props) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const email = useSelector(state => state.login.email);
-  const password = useSelector(state => state.login.password);
+  const email = useSelector(state => state.user.email);
+  const password = useSelector(state => state.user.password);
 
   const onChangeEmail = (event) => {
     dispatch(setEmail(event.target.value));
@@ -23,7 +23,7 @@ function LoginPage(props) {
       .then(res => {
         const result = unwrapResult(res);
         if (result.loginSuccess) {
-          navigate('/register');
+          navigate('/');
         }
         else {
           alert('incorrect password');
@@ -36,7 +36,7 @@ function LoginPage(props) {
 
   return (
     <div>
-      <h3>LoginPage</h3>
+      <h3>Login Page</h3>
       <form onSubmit={onSubmit}>
         <label>Email</label>
         <input type="email" value={email} onChange={onChangeEmail}></input>
