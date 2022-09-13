@@ -1,36 +1,36 @@
+// src/componets/Todo.stories.js
 import React from "react";
-
-import Task from "./Task";
+import Todo from "./Todo";
 
 export default {
-  component: Task,
-  title: "components/User/Task",
+  component: Todo,
+  title: "components/User/Todo",
 };
 
-const Template = (args) => <Task {...args} />;
+const Template = (args) => <Todo {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  task: {
+  todo: {
     id: "1",
-    title: "Test Task",
+    title: "Test Todo",
     state: "TASK_INBOX",
-    updatedAt: new Date(2022, 9, 5),
+    updatedAt: new Date(2022, 9, 9),
   },
-}
+};
 
 export const Pinned = Template.bind({});
 Pinned.args = {
-  task: {
-    ...Default.args.task,
+  todo: {
+    ...Default.args.todo,
     state: "TASK_PINNED",
-  }
-}
+  },
+};
 
 export const Archived = Template.bind({});
 Archived.args = {
-  task: {
-    ...Default.args.task,
+  todo: {
+    ...Default.args.todo,
     state: "TASK_ARCHIVED",
   },
-}
+};

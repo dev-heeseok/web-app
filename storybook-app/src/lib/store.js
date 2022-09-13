@@ -1,37 +1,38 @@
+// src/lib/store.js
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-const defaultTasks = [
+const defaultTodos = [
   { id: "1", title: "Something", state: "TASK_INBOX" },
   { id: "2", title: "Something more", state: "TASK_INBOX" },
   { id: "3", title: "Something else", state: "TASK_INBOX" },
   { id: "4", title: "Something again", state: "TASK_INBOX" },
 ];
 
-const TaskBoxData = {
-  tasks: defaultTasks,
+const initialState = {
+  todos: defaultTodos,
   status: "idle",
   error: null,
 };
 
-const TasksSlice = createSlice({
-  name: "taskbox",
-  initialState: TaskBoxData,
+const TodoSlice = createSlice({
+  name: "todobox",
+  initialState,
   reducers: {
-    updateTaskState: (state, action) => {
-      const { id, newTaskState } = action.payload;
-      const task = state.tasks.findIndex((task) => task.id === id);
-      if (task >= 0) {
-        state.tasks[task].state = newTaskState;
+    updateTodoState: (state, action) => {
+      const { id, newTodoState } = action.payload;
+      const todo = state.todos.findIndex((t) => t.id === id);
+      if (todo >= 0) {
+        state.todos[todo].state = newTodoState;
       }
     },
   },
 });
 
-export const { updateTaskState } = TasksSlice.actions;
+export const { updateTodoState } = TodoSlice.actions;
 
 const store = configureStore({
   reducer: {
-    taskbox: TasksSlice.reducer,
+    todobox: TodoSlice.reducer,
   },
 });
 
